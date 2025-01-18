@@ -1,0 +1,62 @@
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "masac"
+version = "0.0.1"
+description = "Multi-Agent Soft Actor-Critic (MASAC) for PettingZoo environments."
+authors = ["Florian Felten <florian.felten@uni.lu>"]
+license = "MIT"
+readme = "README.md"
+keywords = ["Reinforcement Learning", "Multi-Agent", "RL", "AI", "pettingzoo"]
+classifiers = [
+    "Development Status :: 4 - Beta",  # change to `5 - Production/Stable` when ready
+    "License :: OSI Approved :: MIT License",
+    'Intended Audience :: Science/Research',
+    'Topic :: Scientific/Engineering :: Artificial Intelligence',
+]
+
+[tool.poetry.dependencies]
+python = "^3.9, <3.12"
+gymnasium = "^0.28"
+pettingzoo = "^1.23"
+numpy = "*"
+torch = "^1.13, <2.0.0"
+pygame = "^2.5"
+wandb = "*"
+pytest = "^7.1"
+jax = {version="^0.4"}
+jaxlib = "^0.4"
+flax = "^0.6"
+optax = "^0.1"
+orbax-checkpoint = "^0.3"
+distrax = "^0.1"
+seaborn = "*"
+tensorboard = "*"
+einops = "*"
+tqdm = "*"
+
+
+
+[tool.poetry.group.dev.dependencies]
+pre-commit = "^2.6"
+
+[tool.poetry.group.testing.dependencies]
+pytest = "^7.1.3"
+
+# Linting, testing, ... ########################################################
+[tool.black]
+safe = true
+line-length = 127
+target-version = ['py37', 'py38', 'py39', 'py310']
+include = '\.pyi?$'
+
+[tool.isort]
+atomic = true
+profile = "black"
+src_paths = ["masac"]
+extra_standard_library = ["typing_extensions"]
+indent = 4
+lines_after_imports = 2
+multi_line_output = 3
